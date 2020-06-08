@@ -6,8 +6,6 @@ from datetime import datetime
 import numpy as np
 import matplotlib.pyplot as plt
 import pdb
-from tower import Tower
-import controller
 import pandas as pd
 from data_class import State as s
 from robot import Kuka
@@ -40,29 +38,8 @@ class World():
         # add robot
         self.robot = Kuka()
 
-        # add the tower
-        # num_block=27
-        # self.tower = Tower(num_block, frame_origin=np.array([0, 0, 0]))
-        # self.add_tower()
-        #
-        # # add controller
-        # self.controller = controller.SimpleController()
-        # self.stabilizer = controller.PrePush()
-
         # set gravity
         p.setGravity(0, 0, -10)
-
-        # set simulation length
-        # self.simLength = 1000 # 4000
-        # self.state = s(self.simLength)
-        #
-        # # pre-define the trajectory/force vectors
-        # self.traj = np.zeros((self.simLength, 5))
-        # self.contactForce = np.zeros((self.simLength, ))
-        # self.contactCount = np.empty_like(self.contactForce)
-        #
-        # # reset sim time
-        # self.t = 0
 
         # for testing
         self.block_id = p.loadURDF("block.urdf", [0, 0, 0.05])
